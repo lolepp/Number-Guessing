@@ -29,7 +29,6 @@ def game(range_low, range_top):
     print(f"The number that you need to guess is generated in between {range_low} and {range_top}.\n")
     # User counter
     user_counter = 1
-
     # User number
     user_number = input(f"Your {user_counter}. number here: ")
     while not user_number.isdigit():
