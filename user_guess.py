@@ -1,6 +1,11 @@
 import random
-import time
 import sys
+
+def handleUserInput():
+    
+    
+    print()
+
 
 def range():
     print("First of all, do you want to set the range in which the number is generated that you will need to guess?")
@@ -50,11 +55,14 @@ def game(range_low, range_top):
         else: # You guessed too low
             print("You guessed too low. Guess higher.")
         # User number
-        user_number = int(input(f"Enter your {user_counter}. number here: ")) % (range_top + 1)
+        user_number = input(f"Your {user_counter}. number here: ")
+        while not user_number.isdigit():
+            print("Again, please answer correctly with a number.")
+            user_number = input(f"Your {user_counter}. number here: ")
+        user_number = int(user_number)
         user_counter += 1
         counter += 1
         print(f"Current counter: {counter}")
-        time.sleep(0.1)
     print(f"You correctly guessed the number {computer_number}!\nFinished!")
 
 def main():
