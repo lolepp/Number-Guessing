@@ -58,7 +58,7 @@ def game(range_low, range_top):
     print(f"You correctly guessed the number {computer_number}!\nFinished!")
 
 def main():
-    print("Welcome to my guessing game.\nThe computer generates a random number and you will try to guess it.\nIf you end prematurely, just type anything unwanted.\nGood luck!\n")
+    print("Welcome to my guessing game!\nThe computer generates a random number and you will try to guess it.\nGood luck!\n")
     ranges = range()
     game(ranges[0], ranges[1])
 
