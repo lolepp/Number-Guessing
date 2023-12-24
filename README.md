@@ -5,5 +5,6 @@ To run these scripts you just need to have Python installed.
 Directory management:
 
         computer_guess.py
+        random_search_algorithm.py
         user_guess.py
         README.md

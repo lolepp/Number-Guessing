@@ -16,19 +16,19 @@ def init_game(user_number):
     return low, high
 
 def computer_guess(user_number, low, high):
-    counter = 0
     # Random number
     print(f"Now the computer tries to guess a number between {low} and {high}.\n")
     random_number = random.randint(low, high)
+    counter = 0
     print(f"Computer's guess: {random_number}")
-    print(f"Current counter: {counter}")
+    print(f"Current counter: {counter}\n")
     # Computer tries to guess the number
     while random_number != user_number:
         if random_number > user_number: # Computer guessed too high
-            print("The computer guessed too high. It will guess lower.\n")
+            print("The computer guessed too high. It will guess lower.")
             high = random_number - 1
         elif random_number < user_number: # Computer guessed too low
-            print("The computer guessed too low. It will guess higher.\n")
+            print("The computer guessed too low. It will guess higher.")
             low = random_number + 1
         
         # Generating new random number
@@ -36,9 +36,10 @@ def computer_guess(user_number, low, high):
         counter += 1
 
         print(f"Computer's guess: {random_number}")
-        print(f"Current counter: {counter}")
-        time.sleep(0.25)
+        print(f"Current counter: {counter}\n")
+        time.sleep(0.001)
     print(f"The number {random_number} was correctly guessed!\nFinished.")
+    print(f"How long did it take to reach the target number? {counter}")
 
 def main():
     print("Welcome to my guessing game!\nYou set a number, and your computer will try to guess it.\n")
