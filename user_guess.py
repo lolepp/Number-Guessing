@@ -1,11 +1,16 @@
 import random
 import sys
 
-def handleUserInput():
-    
-    
-    print()
-
+def handleUserInput(user_counter, range_low, range_top):
+    user_number = input(f"Your {user_counter}. number here: ")
+    while not user_number.isdigit():
+        print("Again, please answer correctly with a number.")
+        user_number = input(f"Your {user_counter}. number here: ")
+    user_number = int(user_number)
+    while user_number < range_low or user_number > range_top:
+        print(f"Again, please answer correctly with a number that is between {range_low} and {range_top}.")
+        user_number = input(f"Your {user_counter}. number here: ")
+    return user_number
 
 def range():
     print("First of all, do you want to set the range in which the number is generated that you will need to guess?")
@@ -32,34 +37,23 @@ def range():
 
 def game(range_low, range_top):
     print(f"The number that you need to guess is generated in between {range_low} and {range_top}.\n")
-    # User counter
+    # (User) counter and number
+    counter = 0
     user_counter = 1
-    # User number
-    user_number = input(f"Your {user_counter}. number here: ")
-    while not user_number.isdigit():
-        print("Again, please answer correctly with a number.")
-        user_number = input(f"Your {user_counter}. number here: ")
-    user_number = int(user_number)
-
+    user_number = handleUserInput(user_counter, range_low, range_top)
+    print(f"Current counter: {counter}")
+    
     # Random number from computer
     computer_number = random.randint(range_low, range_top)
-    
-    # Counter
-    counter = 0
-    print(f"Current counter: {counter}")
     
     # Main entry loop
     while user_number != computer_number:
         if user_number > computer_number: # You guessed too high
             print("You guessed too high. Guess lower.")
-        else: # You guessed too low
+        elif user_number < computer_number: # You guessed too low
             print("You guessed too low. Guess higher.")
         # User number
-        user_number = input(f"Your {user_counter}. number here: ")
-        while not user_number.isdigit():
-            print("Again, please answer correctly with a number.")
-            user_number = input(f"Your {user_counter}. number here: ")
-        user_number = int(user_number)
+        user_number = handleUserInput(user_counter, range_low, range_top)
         user_counter += 1
         counter += 1
         print(f"Current counter: {counter}")
