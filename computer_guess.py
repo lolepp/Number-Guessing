@@ -1,5 +1,5 @@
 import random
-# import time
+import time
 
 def get_user_number():
     # User number
@@ -37,7 +37,7 @@ def computer_guess(user_number, low, high):
 
         print(f"Computer's guess: {random_number}")
         print(f"Current counter: {counter}\n")
-        # time.sleep(0.001)
+        time.sleep(0.001)
     print(f"The number {random_number} was correctly guessed!\nFinished.")
     print(f"How long did it take to reach the target number? {counter}")
 
